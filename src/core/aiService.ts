@@ -123,7 +123,7 @@ export class AIService implements IAIService {
     const h = host ?? this._cfg().get<string>('ollamaHost', 'http://localhost:11434');
     const resolved = await this._resolveOllamaHost(h);
     const result = await this._pingUrl(resolved);
-    console.log(`[AI Forge] isOllamaRunning: host=${h}, resolved=${resolved}, result=${result}`);
+    console.log(`[Evolve AI] isOllamaRunning: host=${h}, resolved=${resolved}, result=${result}`);
     return result;
   }
 
@@ -153,7 +153,7 @@ export class AIService implements IAIService {
   async* stream(request: AIRequest): AsyncGenerator<string> {
     // [SEC-5] Reject if too many concurrent streams
     if (this._activeStreams >= AIService.MAX_CONCURRENT_STREAMS) {
-      yield '⚠ AI Forge: Too many concurrent requests. Please wait for the current request to finish.';
+      yield '⚠ Evolve AI: Too many concurrent requests. Please wait for the current request to finish.';
       return;
     }
     this._activeStreams++;
@@ -177,7 +177,7 @@ export class AIService implements IAIService {
     } catch (e) {
       const msg = String(e);
       this._bus.emit('ai.request.error', { instruction: req.instruction, error: msg });
-      yield `\n\n⚠ AI Forge error: ${msg}`;
+      yield `\n\n⚠ Evolve AI error: ${msg}`;
     } finally {
       this._activeStreams--;
     }
@@ -195,6 +195,23 @@ export class AIService implements IAIService {
     const host  = cfg.get<string>('ollamaHost', 'http://localhost:11434');
     const resolved = await this._resolveOllamaHost(host);
     const model = cfg.get<string>('ollamaModel', 'qwen2.5-coder:7b');
+
+    // Pre-check: verify the model exists before streaming
+    const available = await this._getOllamaModels(resolved);
+    if (available !== null && !available.some(m => m === model || m.startsWith(model + ':'))) {
+      const list = available.length > 0
+        ? available.slice(0, 10).join(', ')
+        : 'none installed';
+      yield `⚠ Model **${model}** not found in Ollama.\n\n`;
+      yield `**Available models:** ${list}\n\n`;
+      yield `**To fix:** either:\n`;
+      yield `- Pull the model: \`ollama pull ${model}\`\n`;
+      if (available.length > 0) {
+        yield `- Or change \`aiForge.ollamaModel\` in settings to one you have (e.g. \`${available[0]}\`)\n`;
+      }
+      return;
+    }
+
     const url   = new URL(resolved + '/api/chat');
     const body  = JSON.stringify({
       model, stream: true,
@@ -207,10 +224,33 @@ export class AIService implements IAIService {
     );
   }
 
+  /** Fetch list of installed Ollama model names, or null on failure */
+  private async _getOllamaModels(resolvedHost: string): Promise<string[] | null> {
+    try {
+      const url = new URL(resolvedHost + '/api/tags');
+      const lib = url.protocol === 'https:' ? https : http;
+      return await new Promise<string[] | null>((resolve) => {
+        const req = lib.get(url, res => {
+          let data = '';
+          res.on('data', d => data += d);
+          res.on('end', () => {
+            try {
+              const parsed = JSON.parse(data);
+              const models = (parsed.models || []).map((m: { name: string }) => m.name);
+              resolve(models);
+            } catch { resolve(null); }
+          });
+        });
+        req.on('error', () => resolve(null));
+        req.setTimeout(5000, () => { req.destroy(); resolve(null); });
+      });
+    } catch { return null; }
+  }
+
   private async* _streamAnthropic(req: AIRequest, cfg: vscode.WorkspaceConfiguration): AsyncGenerator<string> {
     // [FIX-4] Read from SecretStorage only — never fall back to settings.json
     const key = await this._secrets.get(SECRET_ANTHROPIC) ?? '';
-    if (!key) { yield '⚠ No Anthropic API key — run: AI Forge: Switch AI Provider'; return; }
+    if (!key) { yield '⚠ No Anthropic API key — run: Evolve AI: Switch AI Provider'; return; }
     const url  = new URL('https://api.anthropic.com/v1/messages');
     const body = JSON.stringify({
       model: cfg.get<string>('anthropicModel', 'claude-sonnet-4-6'), max_tokens: 4096, stream: true,
@@ -232,7 +272,7 @@ export class AIService implements IAIService {
     const key     = await this._secrets.get(SECRET_OPENAI) ?? '';
     const baseUrl = cfg.get<string>('openaiBaseUrl', 'https://api.openai.com/v1');
     const model   = cfg.get<string>('openaiModel', 'gpt-4o');
-    if (!key) { yield '⚠ No OpenAI API key — run: AI Forge: Switch AI Provider'; return; }
+    if (!key) { yield '⚠ No OpenAI API key — run: Evolve AI: Switch AI Provider'; return; }
     const url  = new URL(baseUrl + '/chat/completions');
     const body = JSON.stringify({
       model, stream: true, temperature: 0.2, max_tokens: 4096,
@@ -252,7 +292,7 @@ export class AIService implements IAIService {
     const key   = await this._secrets.get(SECRET_HUGGINGFACE) ?? '';
     const model = cfg.get<string>('huggingfaceModel', 'Qwen/Qwen2.5-Coder-32B-Instruct');
     const base  = cfg.get<string>('huggingfaceBaseUrl', 'https://api-inference.huggingface.co');
-    if (!key) { yield '⚠ No Hugging Face API key — run: AI Forge: Switch AI Provider'; return; }
+    if (!key) { yield '⚠ No Hugging Face API key — run: Evolve AI: Switch AI Provider'; return; }
     const url  = new URL(`${base}/models/${model}/v1/chat/completions`);
     const body = JSON.stringify({
       model, stream: true, temperature: 0.2, max_tokens: 4096,

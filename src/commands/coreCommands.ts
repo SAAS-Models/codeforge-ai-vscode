@@ -21,8 +21,17 @@ export class CoreCommands {
   constructor(private readonly _svc: IServices) {}
 
   register(): void {
+    // [FIX-27] Wrap all command handlers with try/catch to prevent unhandled errors
     const r = (id: string, fn: (...a: unknown[]) => unknown) =>
-      this._svc.vsCtx.subscriptions.push(vscode.commands.registerCommand(id, fn));
+      this._svc.vsCtx.subscriptions.push(vscode.commands.registerCommand(id, async (...args: unknown[]) => {
+        try {
+          await fn(...args);
+        } catch (e) {
+          const msg = e instanceof Error ? e.message : String(e);
+          console.error(`[Evolve AI] Command ${id} failed:`, e);
+          vscode.window.showErrorMessage(`Evolve AI: ${msg}`);
+        }
+      }));
 
     r('aiForge.openChat',          ()          => this.openChat());
     r('aiForge.explainSelection',  ()          => this.explainSelection());
@@ -74,7 +83,7 @@ export class CoreCommands {
 
   async fixErrors(): Promise<void> {
     const ctx = await this._svc.context.build({ includeErrors: true });
-    if (!ctx.errors.length) { vscode.window.showInformationMessage('AI Forge: No errors found ✓'); return; }
+    if (!ctx.errors.length) { vscode.window.showInformationMessage('Evolve AI: No errors found ✓'); return; }
     const list = ctx.errors.map(e => `- ${e.file}:${e.line} — ${e.message}`).join('\n');
     await this._editCommand(`Fix all these errors:\n${list}`, 'edit');
   }
@@ -136,7 +145,7 @@ export class CoreCommands {
     if (!input) return;
 
     await vscode.window.withProgress(
-      { location: vscode.ProgressLocation.Notification, title: 'AI Forge: Building framework…', cancellable: false },
+      { location: vscode.ProgressLocation.Notification, title: 'Evolve AI: Building framework…', cancellable: false },
       async progress => {
         const ctx = await this._svc.context.build({ includeRelated: false });
         const req: AIRequest = {
@@ -167,10 +176,10 @@ export class CoreCommands {
   async gitCommitMessage(): Promise<void> {
     const ctx = await this._svc.context.build({ includeGitDiff: true, includeErrors: false, includeRelated: false });
     if (!ctx.gitDiff) {
-      vscode.window.showInformationMessage('AI Forge: No staged changes — stage files first.'); return;
+      vscode.window.showInformationMessage('Evolve AI: No staged changes — stage files first.'); return;
     }
     await vscode.window.withProgress(
-      { location: vscode.ProgressLocation.Notification, title: 'AI Forge: Generating commit message…' },
+      { location: vscode.ProgressLocation.Notification, title: 'Evolve AI: Generating commit message…' },
       async () => {
         const req: AIRequest = {
           messages: [{ role: 'user', content:
@@ -198,7 +207,7 @@ export class CoreCommands {
 
   async gitExplainDiff(): Promise<void> {
     const ctx = await this._svc.context.build({ includeGitDiff: true, includeErrors: false, includeRelated: false });
-    if (!ctx.gitDiff) { vscode.window.showInformationMessage('AI Forge: No changes to explain.'); return; }
+    if (!ctx.gitDiff) { vscode.window.showInformationMessage('Evolve AI: No changes to explain.'); return; }
     await vscode.commands.executeCommand('aiForge._sendToChat',
       `Explain what these code changes do and why they matter:\n\n${ctx.gitDiff}`, 'chat'
     );
@@ -218,8 +227,8 @@ export class CoreCommands {
     const editor = vscode.window.activeTextEditor;
     if (!editor) return;
     const cmd = this._svc.workspace.getRuntimeCommand(editor.document.uri.fsPath, editor.document.languageId);
-    if (!cmd) { vscode.window.showWarningMessage('AI Forge: No runner for this file type'); return; }
-    const term = vscode.window.createTerminal('AI Forge: Run');
+    if (!cmd) { vscode.window.showWarningMessage('Evolve AI: No runner for this file type'); return; }
+    const term = vscode.window.createTerminal('Evolve AI: Run');
     term.show();
     term.sendText(cmd);
     const ans = await vscode.window.showInformationMessage(`Running: ${cmd}`, 'Fix Errors Now', 'Dismiss');
@@ -282,7 +291,7 @@ export class CoreCommands {
     } else if (provider === 'anthropic') {
       // [SEC-6] Inform user that code will be sent to cloud API
       const consent = await vscode.window.showWarningMessage(
-        'AI Forge will send your code and workspace context to the Anthropic API over HTTPS for processing. Continue?',
+        'Evolve AI will send your code and workspace context to the Anthropic API over HTTPS for processing. Continue?',
         { modal: true }, 'I Understand', 'Cancel'
       );
       if (consent !== 'I Understand') return;
@@ -292,7 +301,7 @@ export class CoreCommands {
     } else if (provider === 'openai') {
       // [SEC-6] Inform user that code will be sent to cloud API
       const consent = await vscode.window.showWarningMessage(
-        'AI Forge will send your code and workspace context to the OpenAI API over HTTPS for processing. Continue?',
+        'Evolve AI will send your code and workspace context to the OpenAI API over HTTPS for processing. Continue?',
         { modal: true }, 'I Understand', 'Cancel'
       );
       if (consent !== 'I Understand') return;
@@ -313,7 +322,7 @@ export class CoreCommands {
     } else if (provider === 'huggingface') {
       // [SEC-6] Inform user that code will be sent to cloud API
       const consent = await vscode.window.showWarningMessage(
-        'AI Forge will send your code and workspace context to the Hugging Face Inference API over HTTPS for processing. Continue?',
+        'Evolve AI will send your code and workspace context to the Hugging Face Inference API over HTTPS for processing. Continue?',
         { modal: true }, 'I Understand', 'Cancel'
       );
       if (consent !== 'I Understand') return;
@@ -380,7 +389,7 @@ export class CoreCommands {
     await vscode.window.withProgress(
       {
         location:    vscode.ProgressLocation.Notification,
-        title:       `AI Forge: ${mode === 'edit' ? 'Editing' : 'Generating'}…`,
+        title:       `Evolve AI: ${mode === 'edit' ? 'Editing' : 'Generating'}…`,
         cancellable: true,  // [FIX-5] Enable cancel button
       },
       async (progress, token) => {
@@ -406,7 +415,7 @@ export class CoreCommands {
         }
 
         if (token.isCancellationRequested) {
-          vscode.window.showInformationMessage('AI Forge: Request cancelled.');
+          vscode.window.showInformationMessage('Evolve AI: Request cancelled.');
           return;
         }
 
@@ -415,7 +424,7 @@ export class CoreCommands {
         if (mode === 'edit' && editor) {
           // [FIX-6] Three options: Apply, Show Diff, Cancel
           const ans = await vscode.window.showInformationMessage(
-            'AI Forge: Edit ready.',
+            'Evolve AI: Edit ready.',
             'Apply', 'Show Diff', 'Cancel'
           );
           if (ans === 'Apply') {

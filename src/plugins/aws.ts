@@ -1,5 +1,5 @@
 /**
- * plugins/aws.ts — AWS cloud plugin for AI Forge
+ * plugins/aws.ts — AWS cloud plugin for Evolve AI
  *
  * Activates when the workspace contains any AWS project marker.
  * Contributes:
@@ -256,7 +256,7 @@ export class AwsPlugin implements IPlugin {
     this._wsPath      = ws?.uri.fsPath ?? '';
     this._projectType = this._wsPath ? detectProjectType(this._wsPath) : 'AWS';
     this._serviceCount = this._wsPath ? extractAwsServices(this._wsPath).length : 0;
-    console.log(`[AI Forge] AWS plugin activated: ${this._projectType} (${this._serviceCount} services detected)`);
+    console.log(`[Evolve AI] AWS plugin activated: ${this._projectType} (${this._serviceCount} services detected)`);
     return [];
   }
 

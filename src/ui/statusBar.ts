@@ -54,12 +54,12 @@ export class StatusBarService {
         ? ` · ${active.map(p => p.icon).join(' ')}`
         : '';
 
-      this._item.text    = `${icon} AI Forge${modelShort ? ': ' + modelShort : ''}${pluginTag}`;
+      this._item.text    = `${icon} Evolve AI${modelShort ? ': ' + modelShort : ''}${pluginTag}`;
       this._item.tooltip = this._buildTooltip(provider, model, running, active);
       this._item.show();
     } catch (e) {
       // [FIX-22] Log errors instead of silently swallowing them
-      console.error('[AI Forge] Status bar refresh failed:', e);
+      console.error('[Evolve AI] Status bar refresh failed:', e);
     }
   }
 
@@ -70,7 +70,7 @@ export class StatusBarService {
     active: { displayName: string; id: string }[]
   ): string {
     const lines = [
-      `AI Forge`,
+      `Evolve AI`,
       `Provider: ${provider}${ollamaRunning ? ' ✓' : ''}`,
       model ? `Model: ${model}` : '',
       active.length > 0 ? `Active plugins: ${active.map(p => p.displayName).join(', ')}` : 'No plugins active',

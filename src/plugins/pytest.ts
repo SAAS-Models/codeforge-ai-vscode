@@ -1,5 +1,5 @@
 /**
- * plugins/pytest.ts — pytest stack plugin for AI Forge
+ * plugins/pytest.ts — pytest stack plugin for Evolve AI
  *
  * Activates when the workspace contains any pytest project marker.
  * Contributes:
@@ -142,7 +142,7 @@ export class PytestPlugin implements IPlugin {
       this._testFiles = globFiles(this._wsPath, [/^test_.+\.py$/, /^.+_test\.py$/], 200);
     }
 
-    console.log(`[AI Forge] pytest plugin activated — ${this._testFiles.length} test files found`);
+    console.log(`[Evolve AI] pytest plugin activated — ${this._testFiles.length} test files found`);
     return [];
   }
 

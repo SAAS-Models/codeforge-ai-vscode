@@ -1,5 +1,5 @@
 /**
- * plugins/terraform.ts — Terraform / IaC stack plugin for AI Forge
+ * plugins/terraform.ts — Terraform / IaC stack plugin for Evolve AI
  *
  * Activates when the workspace contains any Terraform project marker.
  * Contributes:
@@ -176,7 +176,7 @@ export class TerraformPlugin implements IPlugin {
       this._resourceCount = count;
     }
 
-    console.log(`[AI Forge] Terraform plugin activated: ${this._resourceCount} resources`);
+    console.log(`[Evolve AI] Terraform plugin activated: ${this._resourceCount} resources`);
     return [];
   }
 
@@ -693,7 +693,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.terraform.explainResource',
-      title: 'AI Forge: Explain Terraform Resource',
+      title: 'Evolve AI: Explain Terraform Resource',
       async handler(_services: IServices, _uri: unknown, range: unknown): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
@@ -717,7 +717,7 @@ ${code}
     },
     {
       id:    'aiForge.terraform.extractVariable',
-      title: 'AI Forge: Extract to Variable',
+      title: 'Evolve AI: Extract to Variable',
       async handler(_services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Terraform file first'); return; }
@@ -743,7 +743,7 @@ ${editor.document.getText()}
     },
     {
       id:    'aiForge.terraform.addTags',
-      title: 'AI Forge: Add Tags to Resource',
+      title: 'Evolve AI: Add Tags to Resource',
       async handler(_services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Terraform file first'); return; }
@@ -765,7 +765,7 @@ ${editor.document.getText()}
     },
     {
       id:    'aiForge.terraform.generateModule',
-      title: 'AI Forge: Generate Terraform Module',
+      title: 'Evolve AI: Generate Terraform Module',
       async handler(_services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         const code = editor ? editor.document.getText(editor.selection) || editor.document.getText() : '';
@@ -785,7 +785,7 @@ ${code ? `\`\`\`hcl\n${code}\n\`\`\`` : '(No selection — generate a generic re
     },
     {
       id:    'aiForge.terraform.addOutput',
-      title: 'AI Forge: Add Output',
+      title: 'Evolve AI: Add Output',
       async handler(_services: IServices, _uri: unknown, range: unknown): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Terraform file first'); return; }
@@ -810,7 +810,7 @@ ${code}
     },
     {
       id:    'aiForge.terraform.validateSecurity',
-      title: 'AI Forge: Check Security Best Practices',
+      title: 'Evolve AI: Check Security Best Practices',
       async handler(_services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Terraform file first'); return; }

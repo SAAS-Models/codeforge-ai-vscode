@@ -1,5 +1,5 @@
 /**
- * plugins/azure.ts — Microsoft Azure stack plugin for AI Forge
+ * plugins/azure.ts — Microsoft Azure stack plugin for Evolve AI
  *
  * Activates when the workspace contains Azure project markers: host.json,
  * local.settings.json, function.json, azure-pipelines.yml, .azure/, ARM/Bicep
@@ -301,7 +301,7 @@ export class AzurePlugin implements IPlugin {
     this._wsPath  = ws?.uri.fsPath ?? '';
     this._envType = this._wsPath ? detectEnvironmentType(this._wsPath) : 'Azure';
     this._serviceCount = this._wsPath ? detectAzureServices(this._wsPath).length : 0;
-    console.log(`[AI Forge] Azure plugin activated: ${this._envType}`);
+    console.log(`[Evolve AI] Azure plugin activated: ${this._envType}`);
     return [];
   }
 

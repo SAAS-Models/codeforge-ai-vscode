@@ -1,5 +1,5 @@
 /**
- * plugins/gcpConnected.ts — Google Cloud Platform Connected plugin for AI Forge
+ * plugins/gcpConnected.ts — Google Cloud Platform Connected plugin for Evolve AI
  *
  * Activates alongside the base GCP plugin when the workspace contains GCP
  * project markers AND API credentials are configured (service account JSON
@@ -179,9 +179,9 @@ export class GCPConnectedPlugin implements IPlugin {
           const proj = await this._client.getProject();
           this._projectId = proj.projectId;
           this._projectName = proj.name;
-          console.log(`[AI Forge] GCP Connected: project ${this._projectId} (${this._projectName})`);
+          console.log(`[Evolve AI] GCP Connected: project ${this._projectId} (${this._projectName})`);
         } else {
-          console.warn(`[AI Forge] GCP Connected: stored credentials invalid — ${result.message}`);
+          console.warn(`[Evolve AI] GCP Connected: stored credentials invalid — ${result.message}`);
           this._client = null;
           this._connected = false;
           vscode.window.showWarningMessage(
@@ -195,7 +195,7 @@ export class GCPConnectedPlugin implements IPlugin {
         }
       }
     } catch (e) {
-      console.warn(`[AI Forge] GCP Connected: credential init failed — ${e}`);
+      console.warn(`[Evolve AI] GCP Connected: credential init failed — ${e}`);
       this._client = null;
       this._connected = false;
     }
@@ -310,7 +310,7 @@ export class GCPConnectedPlugin implements IPlugin {
       this._cacheTimestamp = now;
       return this._cachedContext;
     } catch (e) {
-      console.warn(`[AI Forge] GCP Connected context fetch failed: ${e}`);
+      console.warn(`[Evolve AI] GCP Connected context fetch failed: ${e}`);
       return this._cachedContext; // return stale cache if available
     }
   }

@@ -1,5 +1,5 @@
 /**
- * plugins/gcp.ts — Google Cloud Platform plugin for AI Forge
+ * plugins/gcp.ts — Google Cloud Platform plugin for Evolve AI
  *
  * Activates when the workspace contains any GCP project marker.
  * Contributes:
@@ -231,7 +231,7 @@ export class GCPPlugin implements IPlugin {
       this._services = detectServices(this._wsPath, allSource);
     }
 
-    console.log(`[AI Forge] GCP plugin activated: ${serviceNames(this._services).join(', ') || 'GCP project'}`);
+    console.log(`[Evolve AI] GCP plugin activated: ${serviceNames(this._services).join(', ') || 'GCP project'}`);
     return [];
   }
 

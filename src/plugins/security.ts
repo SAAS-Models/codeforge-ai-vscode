@@ -1,5 +1,5 @@
 /**
- * plugins/security.ts — Security Scanner plugin for AI Forge
+ * plugins/security.ts — Security Scanner plugin for Evolve AI
  *
  * Always-on plugin (detect() always returns true).
  * Contributes:
@@ -309,7 +309,7 @@ export class SecurityPlugin implements IPlugin {
       this._scanDocument(doc);
     }
 
-    console.log('[AI Forge] Security plugin activated — always-on');
+    console.log('[Evolve AI] Security plugin activated — always-on');
     return disposables;
   }
 
@@ -333,7 +333,7 @@ export class SecurityPlugin implements IPlugin {
         new vscode.Position(f.line, f.endColumn)
       );
       const diag = new vscode.Diagnostic(range, f.message, toDiagnosticSeverity(f.severity));
-      diag.source = 'AI Forge Security';
+      diag.source = 'Evolve AI Security';
       diag.code   = f.category;
       return diag;
     });
@@ -545,7 +545,7 @@ ${content}
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.security.scanFile',
-      title: 'AI Forge: Security Scan Current File',
+      title: 'Evolve AI: Security Scan Current File',
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -579,7 +579,7 @@ For each issue, explain the risk and show a secure alternative. Be concise.`,
     },
     {
       id:    'aiForge.security.scanWorkspace',
-      title: 'AI Forge: Security Scan Workspace',
+      title: 'Evolve AI: Security Scan Workspace',
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const ws = vscode.workspace.workspaceFolders?.[0];
         if (!ws) {
@@ -647,7 +647,7 @@ Provide a prioritised remediation plan. Focus on high-severity issues first. One
     },
     {
       id:    'aiForge.security.fixFinding',
-      title: 'AI Forge: Fix Security Issue',
+      title: 'Evolve AI: Fix Security Issue',
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {

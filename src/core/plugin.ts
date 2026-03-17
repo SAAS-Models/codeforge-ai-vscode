@@ -119,7 +119,7 @@ export class PluginRegistry {
   register(plugin: IPlugin): void {
     // [FIX-24] Prevent silent overwrites from duplicate plugin IDs
     if (this._registered.has(plugin.id)) {
-      console.warn(`[AI Forge] Duplicate plugin ID "${plugin.id}" — skipping registration`);
+      console.warn(`[Evolve AI] Duplicate plugin ID "${plugin.id}" — skipping registration`);
       return;
     }
     this._registered.set(plugin.id, plugin);
@@ -129,11 +129,17 @@ export class PluginRegistry {
     if (plugin.commands) {
       for (const cmd of plugin.commands) {
         if (this._eagerCmds.has(cmd.id)) continue;
-        const d = vscode.commands.registerCommand(cmd.id, () =>
-          vscode.window.showInformationMessage(
-            `${plugin.displayName} plugin is not active in this workspace. Open a ${plugin.displayName} project to use this command.`
-          )
-        );
+        const d = vscode.commands.registerCommand(cmd.id, async () => {
+          const action = await vscode.window.showInformationMessage(
+            `The ${plugin.displayName} plugin is not active. It activates automatically when it detects matching project files in your workspace.`,
+            'Reload Window', 'Open Folder'
+          );
+          if (action === 'Reload Window') {
+            vscode.commands.executeCommand('workbench.action.reloadWindow');
+          } else if (action === 'Open Folder') {
+            vscode.commands.executeCommand('workbench.action.openFolder');
+          }
+        });
         this._eagerCmds.set(cmd.id, d);
       }
     }
@@ -166,7 +172,7 @@ export class PluginRegistry {
           ),
         ]);
       } catch (e) {
-        console.warn(`[AI Forge] Plugin ${id} detect() failed/timed out:`, e);
+        console.warn(`[Evolve AI] Plugin ${id} detect() failed/timed out:`, e);
         shouldBeActive = false;
       }
 
@@ -194,9 +200,15 @@ export class PluginRegistry {
           // [FIX-25] Dispose the eager stub before registering the real handler
           this._eagerCmds.get(cmd.id)?.dispose();
           this._eagerCmds.delete(cmd.id);
-          const d = vscode.commands.registerCommand(cmd.id, (...args) =>
-            cmd.handler(services, ...args)
-          );
+          const d = vscode.commands.registerCommand(cmd.id, async (...args) => {
+            try {
+              await cmd.handler(services, ...args);
+            } catch (e) {
+              const msg = e instanceof Error ? e.message : String(e);
+              console.error(`[Evolve AI] Command ${cmd.id} failed:`, e);
+              vscode.window.showErrorMessage(`Evolve AI: ${msg}`);
+            }
+          });
           disposables.push(d);
           vsCtx.subscriptions.push(d);
         }
@@ -207,9 +219,9 @@ export class PluginRegistry {
         pluginId:    plugin.id,
         displayName: plugin.displayName,
       });
-      console.log(`[AI Forge] Plugin activated: ${plugin.displayName}`);
+      console.log(`[Evolve AI] Plugin activated: ${plugin.displayName}`);
     } catch (e) {
-      console.error(`[AI Forge] Plugin activation failed: ${plugin.id}`, e);
+      console.error(`[Evolve AI] Plugin activation failed: ${plugin.id}`, e);
     }
   }
 
@@ -220,7 +232,7 @@ export class PluginRegistry {
       await plugin.deactivate?.();
       for (const d of this._disposables.get(id) ?? []) d.dispose();
     } catch (e) {
-      console.error(`[AI Forge] Plugin deactivation error: ${id}`, e);
+      console.error(`[Evolve AI] Plugin deactivation error: ${id}`, e);
     }
     this._active.delete(id);
     this._disposables.delete(id);
@@ -229,18 +241,24 @@ export class PluginRegistry {
     if (plugin.commands) {
       for (const cmd of plugin.commands) {
         if (this._eagerCmds.has(cmd.id)) continue;
-        const d = vscode.commands.registerCommand(cmd.id, () =>
-          vscode.window.showInformationMessage(
-            `${plugin.displayName} plugin is not active in this workspace. Open a ${plugin.displayName} project to use this command.`
-          )
-        );
+        const d = vscode.commands.registerCommand(cmd.id, async () => {
+          const action = await vscode.window.showInformationMessage(
+            `The ${plugin.displayName} plugin is not active. It activates automatically when it detects matching project files in your workspace.`,
+            'Reload Window', 'Open Folder'
+          );
+          if (action === 'Reload Window') {
+            vscode.commands.executeCommand('workbench.action.reloadWindow');
+          } else if (action === 'Open Folder') {
+            vscode.commands.executeCommand('workbench.action.openFolder');
+          }
+        });
         this._eagerCmds.set(cmd.id, d);
       }
     }
 
     // [FIX-1] Emit deactivation event
     this._bus.emit('plugin.deactivated', { pluginId: id });
-    console.log(`[AI Forge] Plugin deactivated: ${id}`);
+    console.log(`[Evolve AI] Plugin deactivated: ${id}`);
   }
 
   // ── Accessors ───────────────────────────────────────────────────────────────

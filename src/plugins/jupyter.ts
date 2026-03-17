@@ -1,5 +1,5 @@
 /**
- * plugins/jupyter.ts — Jupyter Notebook plugin for AI Forge
+ * plugins/jupyter.ts — Jupyter Notebook plugin for Evolve AI
  *
  * Activates when the workspace contains .ipynb files, jupyter_notebook_config.py,
  * or a .jupyter/ directory.
@@ -151,7 +151,7 @@ export class JupyterPlugin implements IPlugin {
       this._notebookCount = notebooks.length;
     }
 
-    console.log(`[AI Forge] Jupyter plugin activated: ${this._notebookCount} notebook(s)`);
+    console.log(`[Evolve AI] Jupyter plugin activated: ${this._notebookCount} notebook(s)`);
     return [];
   }
 
@@ -486,7 +486,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.jupyter.explainNotebook',
-      title: 'AI Forge: Explain Notebook',
+      title: 'Evolve AI: Explain Notebook',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a notebook or percent-format script first'); return; }
@@ -512,7 +512,7 @@ ${code.slice(0, 6000)}
     },
     {
       id:    'aiForge.jupyter.addDocumentation',
-      title: 'AI Forge: Add Notebook Documentation',
+      title: 'Evolve AI: Add Notebook Documentation',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a notebook or percent-format script first'); return; }
@@ -547,7 +547,7 @@ ${code.slice(0, 6000)}
     },
     {
       id:    'aiForge.jupyter.cleanOutputs',
-      title: 'AI Forge: Clean Notebook Outputs',
+      title: 'Evolve AI: Clean Notebook Outputs',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a .ipynb file first'); return; }
@@ -585,7 +585,7 @@ ${code.slice(0, 6000)}
     },
     {
       id:    'aiForge.jupyter.convertToNotebook',
-      title: 'AI Forge: Convert Script to Notebook',
+      title: 'Evolve AI: Convert Script to Notebook',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Python file first'); return; }
@@ -612,7 +612,7 @@ ${code}
     },
     {
       id:    'aiForge.jupyter.generateNotebook',
-      title: 'AI Forge: Generate Notebook',
+      title: 'Evolve AI: Generate Notebook',
       async handler(_services): Promise<void> {
         const nbType = await vscode.window.showQuickPick(
           ['Data Analysis (EDA)', 'ML Training', 'Visualization', 'API Data Fetch', 'Text Processing (NLP)', 'Custom…'],

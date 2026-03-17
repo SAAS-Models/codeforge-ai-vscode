@@ -58,15 +58,21 @@ export class ChatPanelProvider implements vscode.WebviewViewProvider {
     view.webview.html    = this._html();
 
     view.webview.onDidReceiveMessage(async (msg) => {
-      switch (msg.type) {
-        case 'send':           await this.send(msg.text, msg.mode);    break;
-        case 'cancel':         this._activeAbort?.abort();             break;  // FIX 5
-        case 'apply':          await this._apply(msg.content, msg.expectedUri); break;
-        case 'applyNew':       await this._applyNew(msg.content);      break;
-        case 'clear':          await this._clearHistory();             break;
-        case 'getStatus':      await this._postStatus();               break;
-        case 'getHistory':     this._sendHistory();                    break;
-        case 'switchProvider': await vscode.commands.executeCommand('aiForge.switchProvider'); break;
+      try {
+        switch (msg.type) {
+          case 'send':           await this.send(msg.text, msg.mode);    break;
+          case 'cancel':         this._activeAbort?.abort();             break;  // FIX 5
+          case 'apply':          await this._apply(msg.content, msg.expectedUri); break;
+          case 'applyNew':       await this._applyNew(msg.content);      break;
+          case 'clear':          await this._clearHistory();             break;
+          case 'getStatus':      await this._postStatus();               break;
+          case 'getHistory':     this._sendHistory();                    break;
+          case 'switchProvider': await vscode.commands.executeCommand('aiForge.switchProvider'); break;
+          default: console.warn('[Evolve AI] Unknown webview message type:', msg.type); break;
+        }
+      } catch (e) {
+        console.error('[Evolve AI] Webview message handler error:', e);
+        this._post({ type: 'notice', text: `Error: ${String(e)}. Try reloading the window (Ctrl+Shift+P > "Developer: Reload Window").` });
       }
     }, undefined, this._svc.vsCtx.subscriptions);
 
@@ -375,7 +381,7 @@ code { font-family: var(--mono); font-size: 12px; background: var(--vscode-textB
 
 <div id="msgs">
   <div class="welcome">
-    <h3>AI Forge</h3>
+    <h3>Evolve AI</h3>
     <p><strong>Chat</strong> &mdash; ask questions about your code</p>
     <p><strong>Edit</strong> &mdash; describe changes to the active file</p>
     <p><strong>Create</strong> &mdash; generate new files from scratch</p>
@@ -386,7 +392,7 @@ code { font-family: var(--mono); font-size: 12px; background: var(--vscode-textB
 
 <div id="inputArea">
   <div id="row">
-    <textarea id="input" rows="1" placeholder="Ask AI Forge..."></textarea>
+    <textarea id="input" rows="1" placeholder="Ask Evolve AI..."></textarea>
     <button id="stopBtn">Stop</button>
     <button id="sendBtn">&#9654;</button>
   </div>
@@ -614,18 +620,21 @@ function copy() {
 }
 
 // Wire up all event listeners (CSP blocks inline onclick handlers)
-document.getElementById('switchBtn').addEventListener('click', () => vscode.postMessage({type:'switchProvider'}));
-document.getElementById('clearBtn').addEventListener('click', () => clearHistory());
-document.getElementById('tabChat').addEventListener('click', () => setMode('chat'));
-document.getElementById('tabEdit').addEventListener('click', () => setMode('edit'));
-document.getElementById('tabNew').addEventListener('click', () => setMode('new'));
-document.getElementById('sendBtn').addEventListener('click', () => send());
-document.getElementById('stopBtn').addEventListener('click', () => cancel());
-document.getElementById('input').addEventListener('keydown', (e) => onKey(e));
-document.getElementById('input').addEventListener('input', function() { resize(this); });
+// [FIX-26] Null-safe event binding to prevent silent webview crashes
+function on(id, evt, fn) { const el = document.getElementById(id); if (el) el.addEventListener(evt, fn); else console.warn('[Evolve AI] Missing element:', id); }
+on('switchBtn', 'click', () => vscode.postMessage({type:'switchProvider'}));
+on('clearBtn',  'click', () => clearHistory());
+on('tabChat',   'click', () => setMode('chat'));
+on('tabEdit',   'click', () => setMode('edit'));
+on('tabNew',    'click', () => setMode('new'));
+on('sendBtn',   'click', () => send());
+on('stopBtn',   'click', () => cancel());
+on('input',     'keydown', (e) => onKey(e));
+on('input',     'input', function() { resize(this); });
 
 // Auto-focus input and request initial state
-document.getElementById('input').focus();
+const inputEl = document.getElementById('input');
+if (inputEl) inputEl.focus();
 vscode.postMessage({ type: 'getStatus' });
 vscode.postMessage({ type: 'getHistory' });
 </script>

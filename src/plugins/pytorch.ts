@@ -1,5 +1,5 @@
 /**
- * plugins/pytorch.ts — PyTorch stack plugin for AI Forge
+ * plugins/pytorch.ts — PyTorch stack plugin for Evolve AI
  *
  * Activates when the workspace contains PyTorch project markers.
  * Contributes:
@@ -167,7 +167,7 @@ export class PyTorchPlugin implements IPlugin {
       }
     }
     this._modelCount = count;
-    console.log(`[AI Forge] PyTorch plugin activated: ${count} nn.Module subclasses found`);
+    console.log(`[Evolve AI] PyTorch plugin activated: ${count} nn.Module subclasses found`);
     return [];
   }
 
@@ -616,7 +616,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.pytorch.explainModel',
-      title: 'AI Forge: Explain PyTorch Model',
+      title: 'Evolve AI: Explain PyTorch Model',
       async handler(services: IServices, uri: unknown, range: unknown): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
@@ -641,7 +641,7 @@ ${code}
     },
     {
       id:    'aiForge.pytorch.addTrainingLoop',
-      title: 'AI Forge: Generate Training Loop',
+      title: 'Evolve AI: Generate Training Loop',
       async handler(services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a file first'); return; }
@@ -667,7 +667,7 @@ ${code}
     },
     {
       id:    'aiForge.pytorch.addCheckpoint',
-      title: 'AI Forge: Add Model Checkpoint',
+      title: 'Evolve AI: Add Model Checkpoint',
       async handler(services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a file first'); return; }
@@ -688,7 +688,7 @@ ${editor.document.getText()}
     },
     {
       id:    'aiForge.pytorch.optimizeTraining',
-      title: 'AI Forge: Optimize Training',
+      title: 'Evolve AI: Optimize Training',
       async handler(services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a file first'); return; }
@@ -735,7 +735,7 @@ ${code}
     },
     {
       id:    'aiForge.pytorch.addMixedPrecision',
-      title: 'AI Forge: Add Mixed Precision',
+      title: 'Evolve AI: Add Mixed Precision',
       async handler(services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a file first'); return; }
@@ -758,7 +758,7 @@ ${editor.document.getText()}
     },
     {
       id:    'aiForge.pytorch.generateDataset',
-      title: 'AI Forge: Generate Dataset Class',
+      title: 'Evolve AI: Generate Dataset Class',
       async handler(services: IServices): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         const context = editor ? editor.document.getText() : '';

@@ -1,5 +1,5 @@
 /**
- * plugins/kubernetes.ts — Kubernetes / Helm / Kustomize plugin for AI Forge
+ * plugins/kubernetes.ts — Kubernetes / Helm / Kustomize plugin for Evolve AI
  *
  * Activates when the workspace contains Kubernetes manifests, Helm charts,
  * Kustomize overlays, or Skaffold config.
@@ -190,7 +190,7 @@ export class KubernetesPlugin implements IPlugin {
       const manifests = yamlFiles.filter(f => isK8sManifest(f));
       this._manifestCount = manifests.length;
     }
-    console.log(`[AI Forge] Kubernetes plugin activated (${this._manifestCount} manifests)`);
+    console.log(`[Evolve AI] Kubernetes plugin activated (${this._manifestCount} manifests)`);
     return [];
   }
 
@@ -615,7 +615,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.k8s.explainResource',
-      title: 'AI Forge: Explain K8s Resource',
+      title: 'Evolve AI: Explain K8s Resource',
       async handler(services, _uri, _range): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
@@ -639,7 +639,7 @@ ${code}
     },
     {
       id:    'aiForge.k8s.addProbes',
-      title: 'AI Forge: Add Health Probes',
+      title: 'Evolve AI: Add Health Probes',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Kubernetes manifest first'); return; }
@@ -681,7 +681,7 @@ ${content}
     },
     {
       id:    'aiForge.k8s.addResources',
-      title: 'AI Forge: Add Resource Limits',
+      title: 'Evolve AI: Add Resource Limits',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Kubernetes manifest first'); return; }
@@ -722,7 +722,7 @@ ${content}
     },
     {
       id:    'aiForge.k8s.addSecurity',
-      title: 'AI Forge: Add Security Context',
+      title: 'Evolve AI: Add Security Context',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Kubernetes manifest first'); return; }
@@ -744,7 +744,7 @@ ${editor.document.getText()}
     },
     {
       id:    'aiForge.k8s.generateManifest',
-      title: 'AI Forge: Generate K8s Manifest',
+      title: 'Evolve AI: Generate K8s Manifest',
       async handler(services): Promise<void> {
         const desc = await vscode.window.showInputBox({
           prompt: 'Describe the Kubernetes resource to generate',
@@ -772,7 +772,7 @@ Workspace: ${wsPath}`,
     },
     {
       id:    'aiForge.k8s.addNetworkPolicy',
-      title: 'AI Forge: Add Network Policy',
+      title: 'Evolve AI: Add Network Policy',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Kubernetes manifest first'); return; }

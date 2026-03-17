@@ -45,7 +45,7 @@
       "activitybar": [
         {
           "id": "ai-forge",
-          "title": "AI Forge",
+          "title": "Evolve AI",
           "icon": "media/sidebar-icon.svg"
         }
       ]
@@ -62,943 +62,943 @@
     "commands": [
       {
         "command": "aiForge.openChat",
-        "title": "AI Forge: Open Chat Panel"
+        "title": "Evolve AI: Open Chat Panel"
       },
       {
         "command": "aiForge.generateFromDesc",
-        "title": "AI Forge: Generate Code from Description",
+        "title": "Evolve AI: Generate Code from Description",
         "icon": "$(sparkle)"
       },
       {
         "command": "aiForge.explainSelection",
-        "title": "AI Forge: Explain Selected Code"
+        "title": "Evolve AI: Explain Selected Code"
       },
       {
         "command": "aiForge.fixErrors",
-        "title": "AI Forge: Fix Current Errors",
+        "title": "Evolve AI: Fix Current Errors",
         "icon": "$(debug-alt)"
       },
       {
         "command": "aiForge.addTests",
-        "title": "AI Forge: Generate Tests for File"
+        "title": "Evolve AI: Generate Tests for File"
       },
       {
         "command": "aiForge.addDocstrings",
-        "title": "AI Forge: Add Documentation Comments"
+        "title": "Evolve AI: Add Documentation Comments"
       },
       {
         "command": "aiForge.refactorSelection",
-        "title": "AI Forge: Refactor Selected Code"
+        "title": "Evolve AI: Refactor Selected Code"
       },
       {
         "command": "aiForge.applyToFolder",
-        "title": "AI Forge: Apply Transform to Folder"
+        "title": "Evolve AI: Apply Transform to Folder"
       },
       {
         "command": "aiForge.gitCommitMessage",
-        "title": "AI Forge: Generate Commit Message",
+        "title": "Evolve AI: Generate Commit Message",
         "icon": "$(git-commit)"
       },
       {
         "command": "aiForge.gitExplainDiff",
-        "title": "AI Forge: Explain Current Changes"
+        "title": "Evolve AI: Explain Current Changes"
       },
       {
         "command": "aiForge.gitPRDescription",
-        "title": "AI Forge: Generate PR Description"
+        "title": "Evolve AI: Generate PR Description"
       },
       {
         "command": "aiForge.buildFramework",
-        "title": "AI Forge: Build Framework from Description"
+        "title": "Evolve AI: Build Framework from Description"
       },
       {
         "command": "aiForge.runAndFix",
-        "title": "AI Forge: Run File & Auto-Fix Errors"
+        "title": "Evolve AI: Run File & Auto-Fix Errors"
       },
       {
         "command": "aiForge.switchProvider",
-        "title": "AI Forge: Switch AI Provider"
+        "title": "Evolve AI: Switch AI Provider"
       },
       {
         "command": "aiForge.setupOllama",
-        "title": "AI Forge: Setup Ollama"
+        "title": "Evolve AI: Setup Ollama"
       },
       {
         "command": "aiForge.codelens.explain",
-        "title": "AI Forge: Explain (CodeLens)"
+        "title": "Evolve AI: Explain (CodeLens)"
       },
       {
         "command": "aiForge.codelens.refactor",
-        "title": "AI Forge: Refactor (CodeLens)"
+        "title": "Evolve AI: Refactor (CodeLens)"
       },
       {
         "command": "aiForge.codelens.tests",
-        "title": "AI Forge: Generate Tests (CodeLens)"
+        "title": "Evolve AI: Generate Tests (CodeLens)"
       },
       {
         "command": "aiForge.databricks.explainJob",
         "title": "Databricks: Explain Spark Job",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.optimiseQuery",
         "title": "Databricks: Optimise Query",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.convertToDataFrame",
         "title": "Databricks: Convert SQL \u2194 DataFrame API",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.convertToDelta",
         "title": "Databricks: Convert to Delta Lake",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.addDltDecorator",
         "title": "Databricks: Wrap as Delta Live Tables",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.addMlflowTracking",
         "title": "Databricks: Add MLflow Tracking",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.fixCollect",
         "title": "Databricks: Fix .collect() OOM Risk",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.replaceUdf",
         "title": "Databricks: Replace Python UDF with Built-in",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.addUnityRef",
         "title": "Databricks: Add Unity Catalog 3-Part Names",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.generateJobYaml",
         "title": "Databricks: Generate Job YAML",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.connect",
         "title": "Databricks: Connect to Workspace",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.disconnect",
         "title": "Databricks: Disconnect",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.status",
         "title": "Databricks: Connection Status",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.listClusters",
         "title": "Databricks: List Clusters",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.clusterInfo",
         "title": "Databricks: Cluster Details & Optimization",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.listJobs",
         "title": "Databricks: List Jobs",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.runJob",
         "title": "Databricks: Run Job",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.analyzeFailure",
         "title": "Databricks: Analyse Failed Job Run",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.designWorkflow",
         "title": "Databricks: Design Workflow with AI",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.browseNotebooks",
         "title": "Databricks: Browse & Import Notebook",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.deployNotebook",
         "title": "Databricks: Deploy Current File as Notebook",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.exploreCatalog",
         "title": "Databricks: Explore Unity Catalog",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.queryTable",
         "title": "Databricks: AI Query Suggestion for Table",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.runSQL",
         "title": "Databricks: Execute SQL on Warehouse",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.databricks.managePipeline",
         "title": "Databricks: Manage DLT Pipeline",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.connect",
         "title": "AWS: Connect to Account",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.disconnect",
         "title": "AWS: Disconnect",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.accountStatus",
         "title": "AWS: Account Status",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.listLambdas",
         "title": "AWS: List Lambda Functions",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.lambdaDetails",
         "title": "AWS: Lambda Function Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.invokeLambda",
         "title": "AWS: Invoke Lambda Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.lambdaLogs",
         "title": "AWS: View Lambda Logs",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.debugLambda",
         "title": "AWS: Debug Lambda Errors",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.listGlueJobs",
         "title": "AWS: List Glue Jobs",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.glueJobDetails",
         "title": "AWS: Glue Job Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.runGlueJob",
         "title": "AWS: Run Glue Job",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.analyzeGlueFailure",
         "title": "AWS: Analyse Glue Job Failure",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.glueDataCatalog",
         "title": "AWS: Browse Glue Data Catalog",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.browseS3",
         "title": "AWS: Browse S3",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.deployToS3",
         "title": "AWS: Deploy File to S3",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.listStacks",
         "title": "AWS: List CloudFormation Stacks",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.stackDetails",
         "title": "AWS: CloudFormation Stack Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.listStateMachines",
         "title": "AWS: List Step Functions",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.designStepFunction",
         "title": "AWS: Design Step Function with AI",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.exploreDynamo",
         "title": "AWS: Explore DynamoDB",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.connect",
         "title": "Google Cloud: Connect to Project",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.disconnect",
         "title": "Google Cloud: Disconnect",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.projectStatus",
         "title": "Google Cloud: Project Status",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.listFunctions",
         "title": "Google Cloud: List Cloud Functions",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.functionDetails",
         "title": "Google Cloud: Function Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.invokeFunction",
         "title": "Google Cloud: Invoke Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.functionLogs",
         "title": "Google Cloud: View Function Logs",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.debugFunction",
         "title": "Google Cloud: Debug Function Errors",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.listCloudRun",
         "title": "Google Cloud: List Cloud Run Services",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.cloudRunDetails",
         "title": "Google Cloud: Cloud Run Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.exploreBigQuery",
         "title": "Google Cloud: Explore BigQuery",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.runBigQuery",
         "title": "Google Cloud: Run BigQuery SQL",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.analyzeBQJob",
         "title": "Google Cloud: Analyse BigQuery Failures",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.browseGCS",
         "title": "Google Cloud: Browse Cloud Storage",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.deployToGCS",
         "title": "Google Cloud: Deploy to Cloud Storage",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.listPubSub",
         "title": "Google Cloud: List Pub/Sub Topics",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.publishMessage",
         "title": "Google Cloud: Publish Pub/Sub Message",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.exploreFirestore",
         "title": "Google Cloud: Explore Firestore",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.connect",
         "title": "Azure: Connect to Subscription",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.disconnect",
         "title": "Azure: Disconnect",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.subscriptionStatus",
         "title": "Azure: Subscription Status",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.listFunctionApps",
         "title": "Azure: List Function Apps",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.functionAppDetails",
         "title": "Azure: Function App Details",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.invokeFunction",
         "title": "Azure: Invoke Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.functionLogs",
         "title": "Azure: View Function Logs",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.debugFunction",
         "title": "Azure: Debug Function Errors",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.listLogicApps",
         "title": "Azure: List Logic Apps",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.analyzeLogicAppFailure",
         "title": "Azure: Analyse Logic App Failure",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.exploreCosmosDB",
         "title": "Azure: Explore Cosmos DB",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.queryCosmos",
         "title": "Azure: Query Cosmos DB",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.browseStorage",
         "title": "Azure: Browse Storage",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.deployToStorage",
         "title": "Azure: Deploy to Storage",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.listPipelines",
         "title": "Azure: List DevOps Pipelines",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.analyzePipelineFailure",
         "title": "Azure: Analyse Pipeline Failure",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.listWebApps",
         "title": "Azure: List Web Apps",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.restartWebApp",
         "title": "Azure: Restart Web App",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.queryLogs",
         "title": "Azure: Query Log Analytics",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.listAlerts",
         "title": "Azure: List Active Alerts",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.explainModel",
-        "title": "AI Forge: Explain dbt Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain dbt Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.addTest",
-        "title": "AI Forge: Add dbt Test",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add dbt Test",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.convertIncremental",
-        "title": "AI Forge: Convert to Incremental",
-        "category": "AI Forge"
+        "title": "Evolve AI: Convert to Incremental",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.generateDocs",
-        "title": "AI Forge: Generate dbt Documentation",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate dbt Documentation",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.optimiseModel",
-        "title": "AI Forge: Optimise dbt Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Optimise dbt Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.dbt.addSourceYaml",
-        "title": "AI Forge: Generate Source YAML",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Source YAML",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.explainDag",
-        "title": "AI Forge: Explain Airflow DAG",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Airflow DAG",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.convertToTaskflow",
-        "title": "AI Forge: Convert to TaskFlow API",
-        "category": "AI Forge"
+        "title": "Evolve AI: Convert to TaskFlow API",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.addSensor",
-        "title": "AI Forge: Add Airflow Sensor",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Airflow Sensor",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.addRetryPolicy",
-        "title": "AI Forge: Add Retry Policy",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Retry Policy",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.generateDag",
-        "title": "AI Forge: Generate Airflow DAG",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Airflow DAG",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.airflow.addMonitoring",
-        "title": "AI Forge: Add DAG Monitoring",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add DAG Monitoring",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.generateTest",
-        "title": "AI Forge: Generate pytest Tests",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate pytest Tests",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.addFixture",
-        "title": "AI Forge: Extract pytest Fixture",
-        "category": "AI Forge"
+        "title": "Evolve AI: Extract pytest Fixture",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.addParametrize",
-        "title": "AI Forge: Add Parametrize",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Parametrize",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.convertUnittest",
-        "title": "AI Forge: Convert unittest to pytest",
-        "category": "AI Forge"
+        "title": "Evolve AI: Convert unittest to pytest",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.addCoverage",
-        "title": "AI Forge: Add Coverage Config",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Coverage Config",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytest.explainTest",
-        "title": "AI Forge: Explain Test",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Test",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.explainEndpoint",
-        "title": "AI Forge: Explain FastAPI Endpoint",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain FastAPI Endpoint",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.addValidation",
-        "title": "AI Forge: Add Request Validation",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Request Validation",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.addResponseModel",
-        "title": "AI Forge: Add Response Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Response Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.generateCrud",
-        "title": "AI Forge: Generate CRUD Router",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate CRUD Router",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.addAuth",
-        "title": "AI Forge: Add Authentication",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Authentication",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.fastapi.addTest",
-        "title": "AI Forge: Generate Endpoint Test",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Endpoint Test",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.explainModel",
-        "title": "AI Forge: Explain Django Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Django Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.addSerializer",
-        "title": "AI Forge: Generate DRF Serializer",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate DRF Serializer",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.addAdmin",
-        "title": "AI Forge: Generate Admin Registration",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Admin Registration",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.addView",
-        "title": "AI Forge: Generate View for Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate View for Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.addUrls",
-        "title": "AI Forge: Generate URL Patterns",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate URL Patterns",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.django.addTest",
-        "title": "AI Forge: Generate Django Tests",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Django Tests",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.explainResource",
-        "title": "AI Forge: Explain Terraform Resource",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Terraform Resource",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.extractVariable",
-        "title": "AI Forge: Extract to Variable",
-        "category": "AI Forge"
+        "title": "Evolve AI: Extract to Variable",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.addTags",
-        "title": "AI Forge: Add Tags to Resource",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Tags to Resource",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.generateModule",
-        "title": "AI Forge: Generate Terraform Module",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Terraform Module",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.addOutput",
-        "title": "AI Forge: Add Output",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Output",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.terraform.validateSecurity",
-        "title": "AI Forge: Check Security Best Practices",
-        "category": "AI Forge"
+        "title": "Evolve AI: Check Security Best Practices",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.explainResource",
-        "title": "AI Forge: Explain K8s Resource",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain K8s Resource",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.addProbes",
-        "title": "AI Forge: Add Health Probes",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Health Probes",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.addResources",
-        "title": "AI Forge: Add Resource Limits",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Resource Limits",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.addSecurity",
-        "title": "AI Forge: Add Security Context",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Security Context",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.generateManifest",
-        "title": "AI Forge: Generate K8s Manifest",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate K8s Manifest",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.k8s.addNetworkPolicy",
-        "title": "AI Forge: Add Network Policy",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Network Policy",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.explainDockerfile",
-        "title": "AI Forge: Explain Dockerfile",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Dockerfile",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.optimize",
-        "title": "AI Forge: Optimize Dockerfile",
-        "category": "AI Forge"
+        "title": "Evolve AI: Optimize Dockerfile",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.addHealthcheck",
-        "title": "AI Forge: Add Healthcheck",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Healthcheck",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.securityAudit",
-        "title": "AI Forge: Docker Security Audit",
-        "category": "AI Forge"
+        "title": "Evolve AI: Docker Security Audit",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.generateCompose",
-        "title": "AI Forge: Generate Docker Compose",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Docker Compose",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.docker.generateDockerfile",
-        "title": "AI Forge: Generate Dockerfile",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Dockerfile",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.jupyter.explainNotebook",
-        "title": "AI Forge: Explain Notebook",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain Notebook",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.jupyter.addDocumentation",
-        "title": "AI Forge: Add Notebook Documentation",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Notebook Documentation",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.jupyter.cleanOutputs",
-        "title": "AI Forge: Clean Notebook Outputs",
-        "category": "AI Forge"
+        "title": "Evolve AI: Clean Notebook Outputs",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.jupyter.convertToNotebook",
-        "title": "AI Forge: Convert Script to Notebook",
-        "category": "AI Forge"
+        "title": "Evolve AI: Convert Script to Notebook",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.jupyter.generateNotebook",
-        "title": "AI Forge: Generate Notebook",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Notebook",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.explainModel",
-        "title": "AI Forge: Explain PyTorch Model",
-        "category": "AI Forge"
+        "title": "Evolve AI: Explain PyTorch Model",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.addTrainingLoop",
-        "title": "AI Forge: Generate Training Loop",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Training Loop",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.addCheckpoint",
-        "title": "AI Forge: Add Model Checkpoint",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Model Checkpoint",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.optimizeTraining",
-        "title": "AI Forge: Optimize Training",
-        "category": "AI Forge"
+        "title": "Evolve AI: Optimize Training",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.addMixedPrecision",
-        "title": "AI Forge: Add Mixed Precision",
-        "category": "AI Forge"
+        "title": "Evolve AI: Add Mixed Precision",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.pytorch.generateDataset",
-        "title": "AI Forge: Generate Dataset Class",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Dataset Class",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.security.scanFile",
-        "title": "AI Forge: Security Scan Current File",
-        "category": "AI Forge"
+        "title": "Evolve AI: Security Scan Current File",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.security.scanWorkspace",
-        "title": "AI Forge: Security Scan Workspace",
-        "category": "AI Forge"
+        "title": "Evolve AI: Security Scan Workspace",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.security.fixFinding",
-        "title": "AI Forge: Fix Security Issue",
-        "category": "AI Forge"
+        "title": "Evolve AI: Fix Security Issue",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.git.blame",
-        "title": "AI Forge: Git Blame Function",
-        "category": "AI Forge"
+        "title": "Evolve AI: Git Blame Function",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.git.changelog",
-        "title": "AI Forge: Generate Changelog",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate Changelog",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.git.commitMessage",
-        "title": "AI Forge: Smart Commit Message",
-        "category": "AI Forge"
+        "title": "Evolve AI: Smart Commit Message",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.git.prTemplate",
-        "title": "AI Forge: Generate PR Template",
-        "category": "AI Forge"
+        "title": "Evolve AI: Generate PR Template",
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.explainStack",
         "title": "AWS: Explain CloudFormation/SAM Stack",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.optimizeLambda",
         "title": "AWS: Optimize Lambda Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.generateIAM",
         "title": "AWS: Generate IAM Policy",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.addErrorHandling",
         "title": "AWS: Add SDK Error Handling",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.convertToCDK",
         "title": "AWS: Convert CloudFormation to CDK",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.generateSAM",
         "title": "AWS: Generate SAM Template",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.explainCost",
         "title": "AWS: Explain Cost Implications",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.aws.addLogging",
         "title": "AWS: Add CloudWatch Logging",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.explainService",
         "title": "Google Cloud: Explain Service",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.optimizeFunction",
         "title": "Google Cloud: Optimize Cloud Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.generateCloudBuild",
         "title": "Google Cloud: Generate Cloud Build Config",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.addErrorHandling",
         "title": "Google Cloud: Add SDK Error Handling",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.optimizeBigQuery",
         "title": "Google Cloud: Optimize BigQuery Query",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.generateFirestoreRules",
         "title": "Google Cloud: Generate Firestore Rules",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.explainCost",
         "title": "Google Cloud: Explain Cost Implications",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.gcp.addLogging",
         "title": "Google Cloud: Add Cloud Logging",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.explainResource",
         "title": "Azure: Explain Resource",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.optimizeFunction",
         "title": "Azure: Optimize Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.generatePipeline",
         "title": "Azure: Generate Pipeline",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.addRetryPolicy",
         "title": "Azure: Add Retry Policy",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.convertToBicep",
         "title": "Azure: Convert ARM to Bicep",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.generateFunction",
         "title": "Azure: Generate Function",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.explainCost",
         "title": "Azure: Explain Cost Implications",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       },
       {
         "command": "aiForge.azure.addManagedIdentity",
         "title": "Azure: Add Managed Identity",
-        "category": "AI Forge"
+        "category": "Evolve AI"
       }
     ],
     "keybindings": [
@@ -1091,11 +1091,11 @@
     "submenus": [
       {
         "id": "aiForge.submenu",
-        "label": "AI Forge"
+        "label": "Evolve AI"
       }
     ],
     "configuration": {
-      "title": "AI Forge",
+      "title": "Evolve AI",
       "properties": {
         "aiForge.provider": {
           "type": "string",
@@ -1156,7 +1156,7 @@
         "aiForge.codeLensEnabled": {
           "type": "boolean",
           "default": true,
-          "description": "Show AI Forge hints above functions (Code Lens)"
+          "description": "Show Evolve AI hints above functions (Code Lens)"
         },
         "aiForge.includeErrorsInContext": {
           "type": "boolean",

@@ -54,5 +54,5 @@ export function registerPlugins(registry: PluginRegistry): void {
 
   // Add more plugins here as they are built:
 
-  console.log('[AI Forge] Plugins registered: Databricks, Databricks Connected, dbt, Airflow, pytest, FastAPI, Django, Terraform, Kubernetes, Docker, Jupyter, PyTorch, Security, Git, AWS, GCP, Azure, AWS Connected, GCP Connected, Azure Connected');
+  console.log('[Evolve AI] Plugins registered: Databricks, Databricks Connected, dbt, Airflow, pytest, FastAPI, Django, Terraform, Kubernetes, Docker, Jupyter, PyTorch, Security, Git, AWS, GCP, Azure, AWS Connected, GCP Connected, Azure Connected');
 }

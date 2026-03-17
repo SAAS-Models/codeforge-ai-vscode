@@ -1,5 +1,5 @@
 /**
- * plugins/azureConnected.ts — Azure Connected plugin for AI Forge
+ * plugins/azureConnected.ts — Azure Connected plugin for Evolve AI
  *
  * Activates alongside the base Azure plugin when the workspace contains
  * Azure markers AND API credentials are configured in SecretStorage.
@@ -197,13 +197,13 @@ export class AzureConnectedPlugin implements IPlugin {
           const sub = await client.getSubscription();
           this._subscriptionName = sub.displayName;
           this._subscriptionId = sub.subscriptionId;
-          console.log(`[AI Forge] Azure Connected: ${this._subscriptionName}`);
+          console.log(`[Evolve AI] Azure Connected: ${this._subscriptionName}`);
         } else {
-          console.warn(`[AI Forge] Azure Connected: stored credentials invalid — ${test.message}`);
+          console.warn(`[Evolve AI] Azure Connected: stored credentials invalid — ${test.message}`);
           this._showSetupPrompt();
         }
       } catch (e) {
-        console.warn(`[AI Forge] Azure Connected: credential check failed — ${e}`);
+        console.warn(`[Evolve AI] Azure Connected: credential check failed — ${e}`);
         this._showSetupPrompt();
       }
     } else {
@@ -308,7 +308,7 @@ export class AzureConnectedPlugin implements IPlugin {
       this._cacheTimestamp = now;
       return this._cachedContext;
     } catch (e) {
-      console.warn(`[AI Forge] Azure Connected context fetch failed: ${e}`);
+      console.warn(`[Evolve AI] Azure Connected context fetch failed: ${e}`);
       return this._cachedContext; // return stale cache if available
     }
   }

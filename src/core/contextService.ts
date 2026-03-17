@@ -137,7 +137,7 @@ export class ContextService implements IContextService {
           this._hookCache.set(hook.key, { data, ts: now });
           pluginData.set(hook.key, data);
         } catch (e) {
-          console.warn(`[AI Forge] Context hook "${hook.key}" failed:`, e);
+          console.warn(`[Evolve AI] Context hook "${hook.key}" failed:`, e);
         }
       })
     );
@@ -185,7 +185,7 @@ export class ContextService implements IContextService {
 
   buildSystemPrompt(ctx: ProjectContext): string {
     const lines = [
-      'You are AI Forge, an expert coding assistant embedded in VS Code.',
+      'You are Evolve AI, an expert coding assistant embedded in VS Code.',
       `Project: ${ctx.workspaceName}`,
       ctx.gitBranch ? `Git branch: ${ctx.gitBranch}` : '',
       '',

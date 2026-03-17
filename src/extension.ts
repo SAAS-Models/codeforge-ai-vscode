@@ -1,5 +1,5 @@
 /**
- * extension.ts — AI Forge entry point
+ * extension.ts — Evolve AI entry point
  *
  * Fixes applied vs v2:
  *  MULTI-ROOT — refresh() now runs plugin detection for EVERY workspace folder,
@@ -87,13 +87,13 @@ export async function activate(vsCtx: vscode.ExtensionContext): Promise<void> {
 
   // Diagnostic: test Ollama connectivity
   const testUrl = vscode.workspace.getConfiguration('aiForge').get<string>('ollamaHost', 'http://localhost:11434');
-  console.log('[AI Forge] Testing Ollama at:', testUrl);
+  console.log('[Evolve AI] Testing Ollama at:', testUrl);
   try {
     const provider = await svc.ai.detectProvider();
     const running = await svc.ai.isOllamaRunning();
-    console.log(`[AI Forge] detectProvider=${provider}, isOllamaRunning=${running}`);
-  } catch (e) { console.error('[AI Forge] Ollama check error:', e); }
-  console.log('[AI Forge] Ready.');
+    console.log(`[Evolve AI] detectProvider=${provider}, isOllamaRunning=${running}`);
+  } catch (e) { console.error('[Evolve AI] Ollama check error:', e); }
+  console.log('[Evolve AI] Ready.');
 }
 
 export function deactivate(): void {}

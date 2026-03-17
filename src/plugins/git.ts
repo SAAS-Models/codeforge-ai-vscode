@@ -1,5 +1,5 @@
 /**
- * plugins/git.ts — Git plugin for AI Forge
+ * plugins/git.ts — Git plugin for Evolve AI
  *
  * Always-on plugin that detects .git/ in the workspace root.
  * Contributes:
@@ -104,7 +104,7 @@ export class GitPlugin implements IPlugin {
       this._remote = getRemoteUrl(this._wsPath);
     }
 
-    console.log(`[AI Forge] Git plugin activated — branch: ${this._branch}, dirty: ${this._dirty}`);
+    console.log(`[Evolve AI] Git plugin activated — branch: ${this._branch}, dirty: ${this._dirty}`);
     return [];
   }
 
@@ -482,7 +482,7 @@ Return ONLY the .gitignore content, no explanation.`;
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.git.blame',
-      title: 'AI Forge: Git Blame Function',
+      title: 'Evolve AI: Git Blame Function',
 
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const editor = vscode.window.activeTextEditor;
@@ -531,7 +531,7 @@ What does this commit do, and why might this line have been changed? Be concise.
 
     {
       id:    'aiForge.git.changelog',
-      title: 'AI Forge: Generate Changelog',
+      title: 'Evolve AI: Generate Changelog',
 
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const ws = vscode.workspace.workspaceFolders?.[0];
@@ -585,7 +585,7 @@ Return ONLY the CHANGELOG Markdown, no explanation.`,
 
     {
       id:    'aiForge.git.commitMessage',
-      title: 'AI Forge: Smart Commit Message',
+      title: 'Evolve AI: Smart Commit Message',
 
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const ws = vscode.workspace.workspaceFolders?.[0];
@@ -654,7 +654,7 @@ Return ONLY the commit message text, no explanation, no code fences.`,
 
     {
       id:    'aiForge.git.prTemplate',
-      title: 'AI Forge: Generate PR Template',
+      title: 'Evolve AI: Generate PR Template',
 
       async handler(services: IServices, ...args: unknown[]): Promise<void> {
         const ws = vscode.workspace.workspaceFolders?.[0];

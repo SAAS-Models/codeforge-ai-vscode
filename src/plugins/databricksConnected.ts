@@ -1,5 +1,5 @@
 /**
- * plugins/databricksConnected.ts — Databricks Connected plugin for AI Forge
+ * plugins/databricksConnected.ts — Databricks Connected plugin for Evolve AI
  *
  * Activates alongside the base Databricks plugin when the workspace contains
  * Databricks markers AND API credentials are configured (.databrickscfg,
@@ -458,9 +458,9 @@ export class DatabricksConnectedPlugin implements IPlugin {
         this._connected = true;
         this._host = info.host;
         this._user = info.user;
-        console.log(`[AI Forge] Databricks Connected: ${this._host} as ${this._user}`);
+        console.log(`[Evolve AI] Databricks Connected: ${this._host} as ${this._user}`);
       } catch (e) {
-        console.warn(`[AI Forge] Databricks Connected: stored credentials invalid — ${e}`);
+        console.warn(`[Evolve AI] Databricks Connected: stored credentials invalid — ${e}`);
         this._client = null;
         this._connected = false;
         vscode.window.showWarningMessage(
@@ -486,9 +486,9 @@ export class DatabricksConnectedPlugin implements IPlugin {
           // Persist to SecretStorage for future sessions
           await services.ai.storeSecret(SECRET_HOST, envHost);
           await services.ai.storeSecret(SECRET_TOKEN, envToken);
-          console.log(`[AI Forge] Databricks Connected (env): ${this._host} as ${this._user}`);
+          console.log(`[Evolve AI] Databricks Connected (env): ${this._host} as ${this._user}`);
         } catch (e) {
-          console.warn(`[AI Forge] Databricks Connected: env credentials invalid — ${e}`);
+          console.warn(`[Evolve AI] Databricks Connected: env credentials invalid — ${e}`);
           this._client = null;
           this._connected = false;
         }
@@ -575,7 +575,7 @@ export class DatabricksConnectedPlugin implements IPlugin {
       this._cacheTimestamp = now;
       return this._cachedContext;
     } catch (e) {
-      console.warn(`[AI Forge] Databricks Connected context fetch failed: ${e}`);
+      console.warn(`[Evolve AI] Databricks Connected context fetch failed: ${e}`);
       return this._cachedContext; // return stale cache if available
     }
   }

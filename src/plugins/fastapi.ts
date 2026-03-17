@@ -1,5 +1,5 @@
 /**
- * plugins/fastapi.ts — FastAPI web framework plugin for AI Forge
+ * plugins/fastapi.ts — FastAPI web framework plugin for Evolve AI
  *
  * Activates when the workspace contains a FastAPI project marker.
  * Contributes:
@@ -165,7 +165,7 @@ export class FastAPIPlugin implements IPlugin {
       this._endpointCount = countEndpoints(this._wsPath);
     }
 
-    console.log(`[AI Forge] FastAPI plugin activated — ${this._endpointCount} endpoints found`);
+    console.log(`[Evolve AI] FastAPI plugin activated — ${this._endpointCount} endpoints found`);
     return [];
   }
 

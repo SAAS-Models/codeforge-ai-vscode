@@ -1,5 +1,5 @@
 /**
- * plugins/airflow.ts — Apache Airflow stack plugin for AI Forge
+ * plugins/airflow.ts — Apache Airflow stack plugin for Evolve AI
  *
  * Activates when the workspace contains airflow.cfg, a dags/ directory with
  * Python files, or Python files containing `from airflow` imports.
@@ -223,7 +223,7 @@ export class AirflowPlugin implements IPlugin {
       this._dagCount = dagFiles.length || fallback.length;
     }
 
-    console.log(`[AI Forge] Airflow plugin activated: ${this._dagCount} DAG file(s)`);
+    console.log(`[Evolve AI] Airflow plugin activated: ${this._dagCount} DAG file(s)`);
     return [];
   }
 
@@ -619,7 +619,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.airflow.explainDag',
-      title: 'AI Forge: Explain Airflow DAG',
+      title: 'Evolve AI: Explain Airflow DAG',
       async handler(_services, _uri, range): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
@@ -646,7 +646,7 @@ ${code}
 
     {
       id:    'aiForge.airflow.convertToTaskflow',
-      title: 'AI Forge: Convert to TaskFlow API',
+      title: 'Evolve AI: Convert to TaskFlow API',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open an Airflow DAG file first'); return; }
@@ -669,7 +669,7 @@ ${code}
 
     {
       id:    'aiForge.airflow.addSensor',
-      title: 'AI Forge: Add Airflow Sensor',
+      title: 'Evolve AI: Add Airflow Sensor',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open an Airflow DAG file first'); return; }
@@ -693,7 +693,7 @@ ${code}
 
     {
       id:    'aiForge.airflow.addRetryPolicy',
-      title: 'AI Forge: Add Retry Policy',
+      title: 'Evolve AI: Add Retry Policy',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open an Airflow DAG file first'); return; }
@@ -717,7 +717,7 @@ ${editor.document.getText()}
 
     {
       id:    'aiForge.airflow.generateDag',
-      title: 'AI Forge: Generate Airflow DAG',
+      title: 'Evolve AI: Generate Airflow DAG',
       async handler(services): Promise<void> {
         const wsPath = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? '.';
         const description = await vscode.window.showInputBox({
@@ -763,7 +763,7 @@ Workspace: ${wsPath}`,
 
     {
       id:    'aiForge.airflow.addMonitoring',
-      title: 'AI Forge: Add DAG Monitoring',
+      title: 'Evolve AI: Add DAG Monitoring',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open an Airflow DAG file first'); return; }

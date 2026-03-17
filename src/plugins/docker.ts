@@ -1,5 +1,5 @@
 /**
- * plugins/docker.ts — Docker / Docker Compose plugin for AI Forge
+ * plugins/docker.ts — Docker / Docker Compose plugin for Evolve AI
  *
  * Activates when the workspace contains a Dockerfile, docker-compose file,
  * or .dockerignore.
@@ -209,7 +209,7 @@ export class DockerPlugin implements IPlugin {
       }
     }
 
-    console.log(`[AI Forge] Docker plugin activated: ${this._stageCount} stage(s), ${this._serviceCount} service(s)`);
+    console.log(`[Evolve AI] Docker plugin activated: ${this._stageCount} stage(s), ${this._serviceCount} service(s)`);
     return [];
   }
 
@@ -582,7 +582,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.docker.explainDockerfile',
-      title: 'AI Forge: Explain Dockerfile',
+      title: 'Evolve AI: Explain Dockerfile',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Dockerfile first'); return; }
@@ -607,7 +607,7 @@ ${code}
     },
     {
       id:    'aiForge.docker.optimize',
-      title: 'AI Forge: Optimize Dockerfile',
+      title: 'Evolve AI: Optimize Dockerfile',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Dockerfile first'); return; }
@@ -656,7 +656,7 @@ ${code}
     },
     {
       id:    'aiForge.docker.addHealthcheck',
-      title: 'AI Forge: Add Healthcheck',
+      title: 'Evolve AI: Add Healthcheck',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Dockerfile first'); return; }
@@ -678,7 +678,7 @@ ${code}
     },
     {
       id:    'aiForge.docker.securityAudit',
-      title: 'AI Forge: Docker Security Audit',
+      title: 'Evolve AI: Docker Security Audit',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Dockerfile or compose file first'); return; }
@@ -709,7 +709,7 @@ ${code}
     },
     {
       id:    'aiForge.docker.generateCompose',
-      title: 'AI Forge: Generate Docker Compose',
+      title: 'Evolve AI: Generate Docker Compose',
       async handler(_services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         const code = editor ? editor.document.getText() : '';
@@ -733,7 +733,7 @@ ${code ? `\`\`\`dockerfile\n${code}\n\`\`\`` : '(No Dockerfile open — generate
     },
     {
       id:    'aiForge.docker.generateDockerfile',
-      title: 'AI Forge: Generate Dockerfile',
+      title: 'Evolve AI: Generate Dockerfile',
       async handler(_services): Promise<void> {
         const lang = await vscode.window.showQuickPick(
           ['Node.js', 'Python', 'Go', 'Java (Maven)', 'Ruby on Rails', 'Rust', 'PHP'],

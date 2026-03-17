@@ -1,5 +1,5 @@
 /**
- * plugins/awsConnected.ts — AWS Connected plugin for AI Forge
+ * plugins/awsConnected.ts — AWS Connected plugin for Evolve AI
  *
  * Activates alongside the base AWS plugin when the workspace contains AWS
  * project markers. Provides live API access to AWS services via stored
@@ -869,9 +869,9 @@ export class AwsConnectedPlugin implements IPlugin {
         this._connected = true;
         this._accountId = identity.Account;
         this._region    = region;
-        console.log(`[AI Forge] AWS Connected: account ${this._accountId} in ${this._region}`);
+        console.log(`[Evolve AI] AWS Connected: account ${this._accountId} in ${this._region}`);
       } catch (e) {
-        console.warn(`[AI Forge] AWS Connected: stored credentials invalid — ${e}`);
+        console.warn(`[Evolve AI] AWS Connected: stored credentials invalid — ${e}`);
         this._client = null;
         this._connected = false;
         vscode.window.showWarningMessage(
@@ -899,9 +899,9 @@ export class AwsConnectedPlugin implements IPlugin {
           await services.ai.storeSecret(SECRET_ACCESS_KEY_ID, envAccessKey);
           await services.ai.storeSecret(SECRET_SECRET_ACCESS_KEY, envSecret);
           await services.ai.storeSecret(SECRET_REGION, envRegion);
-          console.log(`[AI Forge] AWS Connected (env): account ${this._accountId} in ${this._region}`);
+          console.log(`[Evolve AI] AWS Connected (env): account ${this._accountId} in ${this._region}`);
         } catch (e) {
-          console.warn(`[AI Forge] AWS Connected: env credentials invalid — ${e}`);
+          console.warn(`[Evolve AI] AWS Connected: env credentials invalid — ${e}`);
           this._client = null;
           this._connected = false;
         }
@@ -996,7 +996,7 @@ export class AwsConnectedPlugin implements IPlugin {
       this._cacheTimestamp = now;
       return this._cachedContext;
     } catch (e) {
-      console.warn(`[AI Forge] AWS Connected context fetch failed: ${e}`);
+      console.warn(`[Evolve AI] AWS Connected context fetch failed: ${e}`);
       return this._cachedContext; // return stale cache if available
     }
   }

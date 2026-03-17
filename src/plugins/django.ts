@@ -1,5 +1,5 @@
 /**
- * plugins/django.ts — Django stack plugin for AI Forge
+ * plugins/django.ts — Django stack plugin for Evolve AI
  *
  * Activates when the workspace contains any Django project marker.
  * Contributes:
@@ -277,7 +277,7 @@ export class DjangoPlugin implements IPlugin {
       const apps = detectDjangoApps(this._wsPath);
       this._appCount = apps.length;
     }
-    console.log(`[AI Forge] Django plugin activated — ${this._appCount} app(s) detected`);
+    console.log(`[Evolve AI] Django plugin activated — ${this._appCount} app(s) detected`);
     return [];
   }
 
@@ -720,7 +720,7 @@ Workspace: ${wsPath}`,
   readonly commands: PluginCommand[] = [
     {
       id:    'aiForge.django.explainModel',
-      title: 'AI Forge: Explain Django Model',
+      title: 'Evolve AI: Explain Django Model',
       async handler(_services, _uri, range): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
@@ -746,7 +746,7 @@ ${code}
     },
     {
       id:    'aiForge.django.addSerializer',
-      title: 'AI Forge: Generate DRF Serializer',
+      title: 'Evolve AI: Generate DRF Serializer',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Django models file first'); return; }
@@ -791,7 +791,7 @@ Return ONLY the serializer code (no explanation).`,
     },
     {
       id:    'aiForge.django.addAdmin',
-      title: 'AI Forge: Generate Admin Registration',
+      title: 'Evolve AI: Generate Admin Registration',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Django models file first'); return; }
@@ -811,7 +811,7 @@ ${code}
     },
     {
       id:    'aiForge.django.addView',
-      title: 'AI Forge: Generate View for Model',
+      title: 'Evolve AI: Generate View for Model',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Django models file first'); return; }
@@ -832,7 +832,7 @@ ${code}
     },
     {
       id:    'aiForge.django.addUrls',
-      title: 'AI Forge: Generate URL Patterns',
+      title: 'Evolve AI: Generate URL Patterns',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Django views file first'); return; }
@@ -855,7 +855,7 @@ ${code}
     },
     {
       id:    'aiForge.django.addTest',
-      title: 'AI Forge: Generate Django Tests',
+      title: 'Evolve AI: Generate Django Tests',
       async handler(services): Promise<void> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { vscode.window.showWarningMessage('Open a Django file first'); return; }

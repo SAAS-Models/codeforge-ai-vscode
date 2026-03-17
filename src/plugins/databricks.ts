@@ -1,5 +1,5 @@
 /**
- * plugins/databricks.ts — Databricks stack plugin for AI Forge
+ * plugins/databricks.ts — Databricks stack plugin for Evolve AI
  *
  * Activates when the workspace contains any Databricks project marker.
  * Contributes:
@@ -150,7 +150,7 @@ export class DatabricksPlugin implements IPlugin {
     const ws = vscode.workspace.workspaceFolders?.[0];
     this._wsPath  = ws?.uri.fsPath ?? '';
     this._envType = this._wsPath ? detectEnvironmentType(this._wsPath) : 'Databricks';
-    console.log(`[AI Forge] Databricks plugin activated: ${this._envType}`);
+    console.log(`[Evolve AI] Databricks plugin activated: ${this._envType}`);
     return [];
   }
 

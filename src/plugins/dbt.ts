@@ -1,5 +1,5 @@
 /**
- * plugins/dbt.ts — dbt (data build tool) stack plugin for AI Forge
+ * plugins/dbt.ts — dbt (data build tool) stack plugin for Evolve AI
  *
  * Activates when the workspace contains dbt_project.yml, profiles.yml, or
  * a models/ directory with .sql files.
@@ -256,7 +256,7 @@ export class DbtPlugin implements IPlugin {
       const config = parseDbtProjectYml(this._wsPath);
       this._projectName = config.name;
     }
-    console.log(`[AI Forge] dbt plugin activated: project=${this._projectName}`);
+    console.log(`[Evolve AI] dbt plugin activated: project=${this._projectName}`);
     return [];
   }
 

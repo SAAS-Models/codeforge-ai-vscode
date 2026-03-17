@@ -82,20 +82,20 @@ export class AIForgeCodeActionProvider implements vscode.CodeActionProvider {
     // Core: QuickFix per diagnostic
     for (const d of ctx.diagnostics) {
       const fix = new vscode.CodeAction(
-        `$(wand) AI Forge: Fix — ${d.message.slice(0, 60)}`,
+        `$(wand) Evolve AI: Fix — ${d.message.slice(0, 60)}`,
         vscode.CodeActionKind.QuickFix
       );
       fix.diagnostics = [d];
-      fix.command     = { command: 'aiForge.fixErrors', title: 'Fix with AI Forge', arguments: [doc.uri, d] };
+      fix.command     = { command: 'aiForge.fixErrors', title: 'Fix with Evolve AI', arguments: [doc.uri, d] };
       fix.isPreferred = true;
       actions.push(fix);
     }
 
     // Core: selection actions
     if (!range.isEmpty) {
-      actions.push(action('$(sparkle) AI Forge: Explain',  'aiForge.explainSelection',  vscode.CodeActionKind.Refactor));
-      actions.push(action('$(wand) AI Forge: Refactor',    'aiForge.refactorSelection', vscode.CodeActionKind.Refactor));
-      actions.push(action('$(beaker) AI Forge: Tests',     'aiForge.addTests',          vscode.CodeActionKind.Refactor));
+      actions.push(action('$(sparkle) Evolve AI: Explain',  'aiForge.explainSelection',  vscode.CodeActionKind.Refactor));
+      actions.push(action('$(wand) Evolve AI: Refactor',    'aiForge.refactorSelection', vscode.CodeActionKind.Refactor));
+      actions.push(action('$(beaker) Evolve AI: Tests',     'aiForge.addTests',          vscode.CodeActionKind.Refactor));
     }
 
     // [FIX-8] Plugin-contributed code actions

@@ -72,7 +72,7 @@ export class WorkspaceService implements IWorkspaceService {
       'vscode.diff',
       editor.document.uri,
       vscode.Uri.file(tmpPath),
-      `AI Forge — ${title} (read-only preview)`
+      `Evolve AI — ${title} (read-only preview)`
     );
 
     const answer = await vscode.window.showInformationMessage(
@@ -151,7 +151,7 @@ export class WorkspaceService implements IWorkspaceService {
         `• ${ws ? path.relative(ws.uri.fsPath, f.path) : path.basename(f.path)}`
       ).join('\n');
       const ans  = await vscode.window.showInformationMessage(
-        `AI Forge will create/update ${files.length} file(s):\n${list}`,
+        `Evolve AI will create/update ${files.length} file(s):\n${list}`,
         { modal: true }, 'Apply All', 'Cancel'
       );
       if (ans !== 'Apply All') return;
@@ -244,7 +244,7 @@ export class WorkspaceService implements IWorkspaceService {
 
     await vscode.window.withProgress({
       location:    vscode.ProgressLocation.Notification,
-      title:       'AI Forge: Applying transform…',
+      title:       'Evolve AI: Applying transform…',
       cancellable: true,
     }, async (progress, token) => {
       for (let i = 0; i < files.length; i++) {
@@ -311,7 +311,7 @@ export class WorkspaceService implements IWorkspaceService {
     }
 
     vscode.window.showInformationMessage(
-      `AI Forge: Done. ${processed} file(s) updated (undoable with Ctrl+Z), ${skipped} unchanged.`
+      `Evolve AI: Done. ${processed} file(s) updated (undoable with Ctrl+Z), ${skipped} unchanged.`
     );
   }
 
@@ -373,7 +373,7 @@ function isSafePath(filePath: string, baseDir: string): boolean {
   const resolved = path.resolve(filePath);
   const base     = path.resolve(baseDir);
   if (!resolved.startsWith(base + path.sep) && resolved !== base) {
-    console.warn(`[AI Forge] Blocked path traversal: "${filePath}" escapes "${baseDir}"`);
+    console.warn(`[Evolve AI] Blocked path traversal: "${filePath}" escapes "${baseDir}"`);
     return false;
   }
   return true;
