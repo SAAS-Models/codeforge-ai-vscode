@@ -2,7 +2,7 @@
   "name": "evolve-ai",
   "displayName": "Evolve AI",
   "description": "Context-aware AI coding assistant with 16 auto-detecting plugins. Works with Ollama (local/offline), Claude, OpenAI, and HuggingFace. Understands your project, errors, git state, and cloud platforms (AWS, GCP, Azure, Databricks).",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "codeforge-ai",
   "icon": "media/icon.png",
   "engines": {
