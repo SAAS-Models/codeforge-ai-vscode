@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to StackForge AI are documented here.
+All notable changes to Evolve AI are documented here.
 
 ## [1.1.0] — 2026-03-16
 

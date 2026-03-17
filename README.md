@@ -1,6 +1,6 @@
-# StackForge AI — Context-Aware AI Coding Assistant for VS Code
+# Evolve AI — Context-Aware AI Coding Assistant for VS Code
 
-**StackForge AI** brings powerful AI code assistance directly into your editor. It works with **Ollama** (local/offline), **Anthropic Claude**, **OpenAI-compatible APIs**, and **Hugging Face** — so you choose where your code goes.
+**Evolve AI** brings powerful AI code assistance directly into your editor. It works with **Ollama** (local/offline), **Anthropic Claude**, **OpenAI-compatible APIs**, and **Hugging Face** — so you choose where your code goes.
 
 What sets it apart: a **plugin architecture** that automatically detects your tech stack and injects deep domain knowledge into every AI interaction. Working on Databricks? The Databricks plugin activates with live workspace integration. Deploying to AWS? Lambda, Glue, S3, and CloudFormation commands appear automatically. No configuration needed.
 
@@ -91,7 +91,7 @@ The **Databricks**, **AWS**, **Google Cloud**, and **Azure** plugins go beyond c
 1. **Install the extension** from the VS Code Marketplace
 2. **Choose your AI provider**:
    - For **local/private**: Install [Ollama](https://ollama.com), pull a model (`ollama pull qwen2.5-coder:7b`), and you're ready
-   - For **cloud AI**: Run `StackForge AI: Switch AI Provider` from the command palette, select your provider, and enter your API key when prompted
+   - For **cloud AI**: Run `Evolve AI: Switch AI Provider` from the command palette, select your provider, and enter your API key when prompted
 3. **Start coding**: Open the AI Chat sidebar (`Ctrl+Shift+A`) or use any command from the command palette
 4. **Cloud plugins** activate automatically when they detect relevant files in your workspace
 
@@ -317,7 +317,7 @@ Connect to your Azure subscription for Functions management, Logic Apps monitori
 **Creating a service principal:**
 ```bash
 # Using Azure CLI
-az ad sp create-for-rbac --name "StackForge-AI" --role "Reader" \
+az ad sp create-for-rbac --name "Evolve-AI" --role "Reader" \
   --scopes /subscriptions/<your-subscription-id>
 ```
 This outputs `appId` (Client ID), `password` (Client Secret), and `tenant` (Tenant ID).
@@ -426,13 +426,13 @@ A: You can switch providers at any time via **AI Forge: Switch AI Provider**. Th
 **Q: What models work with Ollama?**
 A: Any model Ollama supports. Recommended: `qwen2.5-coder:7b` (default, good balance), `codellama:13b` (larger, better quality), `deepseek-coder:6.7b`, or `starcoder2:7b`. Run `ollama list` to see installed models.
 
-**Q: Does StackForge AI work with LM Studio / llama.cpp / Jan?**
+**Q: Does Evolve AI work with LM Studio / llama.cpp / Jan?**
 A: Yes. Set `aiForge.ollamaHost` to your server's URL (e.g., `http://localhost:1234/v1` for LM Studio). These servers implement the same API as Ollama.
 
 ### Plugins
 
 **Q: How do plugins activate?**
-A: Automatically. When you open a workspace, StackForge AI scans for marker files (e.g., `Dockerfile` for Docker, `manage.py` for Django). Matching plugins activate silently and start injecting domain knowledge into every AI interaction. The status bar shows active plugins.
+A: Automatically. When you open a workspace, Evolve AI scans for marker files (e.g., `Dockerfile` for Docker, `manage.py` for Django). Matching plugins activate silently and start injecting domain knowledge into every AI interaction. The status bar shows active plugins.
 
 **Q: Can I disable a plugin?**
 A: Yes. Add the plugin ID to `aiForge.disabledPlugins` in settings. Example: `["databricks", "docker"]`. Plugin IDs: `databricks`, `databricks-connected`, `aws`, `aws-connected`, `gcp`, `gcp-connected`, `azure`, `azure-connected`, `dbt`, `airflow`, `pytest`, `fastapi`, `django`, `terraform`, `kubernetes`, `docker`, `jupyter`, `pytorch`, `security`, `git`.
@@ -461,7 +461,7 @@ A: The extension only performs the actions you explicitly trigger via commands. 
 
 ## Contributing
 
-StackForge AI uses a plugin architecture that makes adding new stack support straightforward.
+Evolve AI uses a plugin architecture that makes adding new stack support straightforward.
 
 1. Read `docs/ARCHITECTURE.md` for the full structural design
 2. Read `docs/PLUGIN_GUIDE.md` for the step-by-step plugin template
