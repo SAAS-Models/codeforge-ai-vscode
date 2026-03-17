@@ -34,7 +34,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/SAAS-Models/codeforge-ai-vscode"
+    "url": "https://github.com/EvolveMinds/codeforge-ai-vscode"
   },
   "activationEvents": [
     "onStartupFinished"
